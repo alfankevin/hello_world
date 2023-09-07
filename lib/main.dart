@@ -65,9 +65,9 @@ class MyApp extends StatelessWidget {
       // ),
 
       // Dialog Widget
-      // home: Scaffold (
-      //   body: MyLayout(),
-      // )
+      home: Scaffold (
+        body: MyLayout(),
+      )
 
       // Input and Selection Widget
       // home: Scaffold (
