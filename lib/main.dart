@@ -1,50 +1,143 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'dart:async';
 
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
+  // int _count = 0;
   const MyApp({super.key});
 	@override
 	Widget build(BuildContext context) {
-		return MaterialApp(
-			home: Container(
-				margin: EdgeInsets.only(top: 30),
-				color: Colors.white,
-				child: Column(
-					children: <Widget>[
-						AppBar(title: Text('Contoh Cupertino')),
-						CupertinoButton(
-							child: Text("Contoh button"),
-							onPressed: () {},
-						),
-						CupertinoActivityIndicator(),
-					],
-				),
-			),
+		return MaterialApp (
+      // Text Widget
+		  // home : Text('This is Text Widget',),
+
+      // Image Widget
+			// home:Image(image: NetworkImage('https://flutter.github.io/assets-for-api-docs/assets/widgets/owl.jpg'),),
+
+      // Material Design and Cupertino Design
+      // home: Container(
+			// 	margin: EdgeInsets.only(top: 30),
+			// 	color: Colors.white,
+			// 	child: Column(
+			// 		children: <Widget>[
+			// 			AppBar(title: Text('Contoh Cupertino')),
+			// 			CupertinoButton(
+			// 				child: Text("Contoh button"),
+			// 				onPressed: () {},
+			// 			),
+			// 			CupertinoActivityIndicator(),
+			// 		],
+			// 	),
+			// ),
+
+      // Button Widget
+      // home: Scaffold (
+			// 	floatingActionButton:FloatingActionButton (
+			// 		onPressed: () {
+      //       // Add your onPressed code here!
+			// 		},
+			// 		child: Icon(Icons.thumb_up),
+			// 		backgroundColor: Colors.pink,
+			// 	),
+			// ),
+
+      // Scaffold Widget
+      // home: Scaffold (
+      //   appBar: AppBar (
+      //     title: Text('Contoh Scaffold'),
+      //   ),
+      //   body: Center (
+      //     child: Text('You have pressed the button times'),
+      //   ),
+      //   bottomNavigationBar: BottomAppBar (
+      //     child: Container (
+      //       height: 50.0,
+      //     ),
+      //   ),
+      //   floatingActionButton: FloatingActionButton (
+      //     onPressed: () => 0,
+      //     tooltip: 'Increment Counter',
+      //     child: Icon(Icons.add),
+      //   ),
+      //   floatingActionButtonLocation:FloatingActionButtonLocation.centerDocked,
+      // ),
+
+      // Dialog Widget
+      // home: Scaffold (
+      //   body: MyLayout(),
+      // )
+
+      // Input and Selection Widget
+      // home: Scaffold (
+      //   appBar: AppBar (
+      //     title: Text('Contoh TextField')
+      //   ),
+      //   body: Container (
+      //     margin: EdgeInsets.only(top: 5),
+      //     child: TextField (
+      //       obscureText: false,
+      //       decoration: InputDecoration (
+      //         border: OutlineInputBorder(),
+      //         labelText: 'Nama',
+      //       ),
+      //     ),
+      //   ),
+      // ),
+
+      // Date and Time Pickers
+      // home: MyHomePage(title: 'Contoh Date Picker'),
 		);
 	}
 }
 
-// class MyApp extends StatelessWidget {
-//   const MyApp({super.key});
-// 	@override
-// 	Widget build(BuildContext context) {
-// 		return MaterialApp(
-// 		  home : Text('This is Text Widget',),
-// 		);
-// 	}
-// }
+// Dialog Widget
+class MyLayout extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Padding (
+      padding: const EdgeInsets.all(8.0),
+      child: ElevatedButton (
+        child: Text('Show alert'),
+        onPressed: () {
+          showAlertDialog(context);
+        },
+      ),
+    );
+  }
+}
 
-// class MyApp extends StatelessWidget {
-//   const MyApp({super.key});
-// 	@override
-// 	Widget build(BuildContext context) {
-// 		return MaterialApp(
-// 			home:Image(image: NetworkImage('https://flutter.github.io/assets-for-api-docs/assets/widgets/owl.jpg'),),
-// 		);
-// 	}
-// }
+showAlertDialog(BuildContext context) {
+  // set up the button
+  Widget okButton = TextButton (
+    child: Text("OK"),
+    onPressed: () {
+      Navigator.pop(context);
+    },
+  );
+
+  // set up the AlertDialog
+  AlertDialog alert = AlertDialog (
+    title: Text("My title",
+    style: TextStyle (
+      fontWeight: FontWeight.bold
+    )),
+    content: Text("This is my message."),
+    actions: [
+      okButton,
+    ],
+  );
+
+  // show the dialog
+  showDialog (
+    context: context,
+    builder: (BuildContext context) {
+      return alert;
+    },
+  );
+}
+// End Dialog Widget
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
