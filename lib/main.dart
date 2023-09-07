@@ -10,6 +10,13 @@ class MyApp extends StatelessWidget {
 	@override
 	Widget build(BuildContext context) {
 		return MaterialApp (
+
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
+        useMaterial3: true,
+      ),
+      // home: const MyHomePage(title: 'Tugas Pertama Flutter'),
+
       // Text Widget
 		  // home : Text('This is Text Widget',),
 
@@ -65,9 +72,9 @@ class MyApp extends StatelessWidget {
       // ),
 
       // Dialog Widget
-      home: Scaffold (
-        body: MyLayout(),
-      )
+      // home: Scaffold (
+      //   body: MyLayout(),
+      // )
 
       // Input and Selection Widget
       // home: Scaffold (
@@ -87,7 +94,7 @@ class MyApp extends StatelessWidget {
       // ),
 
       // Date and Time Pickers
-      // home: MyHomePage(title: 'Contoh Date Picker'),
+      home: MyHomePage(title: 'Contoh Date Picker'),
 		);
 	}
 }
@@ -158,17 +165,19 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+  DateTime selectedDate = DateTime.now();
 
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
+  Future<Null> _selectDate(BuildContext context) async {
+    final DateTime? picked = await showDatePicker (
+      context: context,
+      initialDate: selectedDate,
+      firstDate: DateTime(2015, 8),
+      lastDate: DateTime(2101));
+    if(picked != null && picked != selectedDate)
+      setState (() {
+        selectedDate = picked;
+      }
+    );
   }
 
   @override
@@ -206,14 +215,24 @@ class _MyHomePageState extends State<MyHomePage> {
           // TRY THIS: Invoke "debug painting" (choose the "Toggle Debug Paint"
           // action in the IDE, or press "p" in the console), to see the
           // wireframe for each widget.
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisSize: MainAxisSize.min,
+          // mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Text(
-              'Alfan Farchi Al-Hadi\n       2141720084',
+              'Alfan Farchi Al-Hadi',
             ),
-            Text(
-              '',
-              style: Theme.of(context).textTheme.headlineMedium,
+            const Text(
+              '2141720084\n',
+            ),
+            Text("${selectedDate.toLocal()}".split(' ')[0]),
+            SizedBox(height: 20,),
+            ElevatedButton (
+              onPressed: () => {
+                _selectDate(context),
+                print(selectedDate.day + selectedDate.month + selectedDate.year)
+              },
+              child: Text('Pilih Tanggal'),
+              // style: Theme.of(context).textTheme.headlineMedium,
             ),
           ],
         ),
