@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Tugas Pertama Flutter'),
+      home: Scaffold(body: SafeArea(child: Text("data")),),
     );
   }
 }
