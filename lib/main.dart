@@ -52,21 +52,19 @@ class MyApp extends StatelessWidget {
               )
             ),
             Container(
-              color: Colors.red,
+              color: Colors.purple,
               margin: EdgeInsets.only(left: 10.0, right: 10.0, bottom: 10.0),
-              padding: EdgeInsets.all(1.0),
+              padding: EdgeInsets.all(2.0),
               child: Column(
                 children: [
                   Container(
                     child: Image(
-                      image: NetworkImage('https://flutter.github.io/assets-for-api-docs/assets/widgets/owl.jpg'),
+                      image: AssetImage('assets/images/mendar-bouchali-HHIxGdj9m-Q-unsplash.jpg',),
                     )
                   ),
                   Container(
-                    color: Colors.green,
-                    alignment: Alignment.bottomCenter,
-                    child: FlutterLogo(size: 50.0),
-                    height: 75,
+                    child: Text('Costa Mendekat Ke Palmeiras', style: TextStyle(color: Colors.white, fontSize: 20.0),),
+                    color: Colors.purpleAccent,
                   )
                 ],
               )
