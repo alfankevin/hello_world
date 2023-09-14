@@ -186,10 +186,58 @@ class MyApp extends StatelessWidget {
               )
             ),
             Container(
-              color: Colors.black,
-              alignment: Alignment.bottomCenter,
-              child: FlutterLogo(size: 50.0),
+              margin: EdgeInsets.only(left: 10.0, right: 10.0, bottom: 10.0),
+              decoration: BoxDecoration(
+                border: Border.all(
+                  color: Colors.black,
+                  width: 1,
+                ),
+              ),
+              child: Column(
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                      border: Border(
+                        bottom: BorderSide(
+                          color: Colors.black,
+                          width: 1,
+                        ),
+                      ),
+                    ),
+                    child: Row(
+                      children: [
+                        Expanded(
+                          flex: 1,
+                          child: Container(
+                            child: Image(
+                              image: AssetImage('assets/images/mendar-bouchali-HHIxGdj9m-Q-unsplash.jpg',),
+                            )
+                          )
+                        ),
+                        Expanded(
+                          flex: 1,
+                          child: Container(
+                            color: Colors.white,
+                            child: Text('Pique Bilang Wasit Untung-kan Madrid, Koeman Tepok', textAlign: TextAlign.center, style: TextStyle(color: Colors.black, fontSize: 14.0),),
+                          )
+                        ),
+                      ],
+                    )
+                  ),
+                  Container(
+                    width: double.infinity,
+                    padding: EdgeInsets.all(10.0),
+                    color: Colors.white,
+                    child: Text('Barcelona Feb 13, 2021', style: TextStyle(color: Colors.black, fontSize: 14.0),),
+                  ),
+                ],
+              )
             ),
+            // Container(
+            //   color: Colors.black,
+            //   alignment: Alignment.bottomCenter,
+            //   child: FlutterLogo(size: 50.0),
+            // ),
             // Container(
             //   color: Colors.red,
             //   alignment: Alignment.bottomCenter,
