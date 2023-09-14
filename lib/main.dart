@@ -29,9 +29,7 @@ class MyApp extends StatelessWidget {
                 Expanded(
                   flex: 1,
                   child: ElevatedButton(
-                    onPressed: () {
-                      // Tindakan saat tombol kiri ditekan
-                    },
+                    onPressed: () {},
                     style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.all<Color>(Colors.white),
                       elevation: MaterialStateProperty.all<double>(0.0),
@@ -42,9 +40,7 @@ class MyApp extends StatelessWidget {
                 Expanded(
                   flex: 1,
                   child: ElevatedButton(
-                    onPressed: () {
-                      // Tindakan saat tombol kanan ditekan
-                    },
+                    onPressed: () {},
                     style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.all<Color>(Colors.white),
                       elevation: MaterialStateProperty.all<double>(0.0),
@@ -56,6 +52,27 @@ class MyApp extends StatelessWidget {
               )
             ),
             Container(
+              color: Colors.red,
+              margin: EdgeInsets.only(left: 10.0, right: 10.0, bottom: 10.0),
+              padding: EdgeInsets.all(1.0),
+              child: Column(
+                children: [
+                  Container(
+                    child: Image(
+                      image: NetworkImage('https://flutter.github.io/assets-for-api-docs/assets/widgets/owl.jpg'),
+                    )
+                  ),
+                  Container(
+                    color: Colors.green,
+                    alignment: Alignment.bottomCenter,
+                    child: FlutterLogo(size: 50.0),
+                    height: 75,
+                  )
+                ],
+              )
+            ),
+            Container(
+              margin: EdgeInsets.only(left: 10.0, right: 10.0, bottom: 10.0),
               color: Colors.green,
               alignment: Alignment.bottomCenter,
               child: FlutterLogo(size: 50.0),
