@@ -130,7 +130,7 @@ class MyApp extends StatelessWidget {
                   ),
                   Container(
                     width: double.infinity,
-                    padding: EdgeInsets.only(left: 10.0, top: 10.0, right: 10.0, bottom: 10.0),
+                    padding: EdgeInsets.all(10.0),
                     color: Colors.white,
                     child: Text('Barcelona Feb 13, 2021', style: TextStyle(color: Colors.black, fontSize: 14.0),),
                   ),
@@ -178,7 +178,7 @@ class MyApp extends StatelessWidget {
                   ),
                   Container(
                     width: double.infinity,
-                    padding: EdgeInsets.only(left: 10.0, top: 10.0, right: 10.0, bottom: 10.0),
+                    padding: EdgeInsets.all(10.0),
                     color: Colors.white,
                     child: Text('Barcelona Feb 13, 2021', style: TextStyle(color: Colors.black, fontSize: 14.0),),
                   ),
