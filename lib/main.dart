@@ -11,45 +11,104 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp (
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Trial',
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Flutter Trial'),
-          backgroundColor: Colors.blue,
-          actions: [
-            IconButton(
-              icon: Icon(Icons.mail),
-              onPressed: () {},
-              color: Colors.yellowAccent,
-            )
-          ],
+          title: Text('MyApp'),
+          backgroundColor: Colors.red,
         ),
-        body: SafeArea(
-          child: Container(
-            color: Colors.red,
-            margin: EdgeInsets.only(top: 10.0, right: 10.0, left: 10.0),
-            padding: EdgeInsets.only(top: 10.0, right: 10.0, left: 10.0),
-            child: Column(
-              children: <Widget>[
-                Image(image: AssetImage('assets/images/mendar-bouchali-HHIxGdj9m-Q-unsplash.jpg',),
-                // width: 200,
+        // body: Row(
+        // body: Column(
+        // body: Stack(
+        body: ListView(
+        // body: GridView.count(
+        //   crossAxisCount: 3,
+          children: <Widget>[
+            Container(
+              child: Row(
+                children: [
+                Expanded(
+                  flex: 1,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      // Tindakan saat tombol kiri ditekan
+                    },
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all<Color>(Colors.white),
+                      elevation: MaterialStateProperty.all<double>(0.0),
+                    ),
+                    child: Text('Berita Terbaru'.toUpperCase(), style: TextStyle(color: Colors.black,)),
+                  ),
                 ),
-                Image.network('https://www.petanikode.com/img/flutter/flutter.png'),
-                Text(
-                  'Belajar Flutter di Petani Kode',
-                  style: TextStyle (fontSize: 24, fontFamily: "Serif", height: 2.0)
+                Expanded(
+                  flex: 1,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      // Tindakan saat tombol kanan ditekan
+                    },
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all<Color>(Colors.white),
+                      elevation: MaterialStateProperty.all<double>(0.0),
+                    ),
+                    child: Text('Pertandingan Hari Ini'.toUpperCase(), style: TextStyle(color: Colors.black,)),
+                  ),
                 ),
-                Text('Pembelajaran Flutter untuk Pemula'),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Image.network('https://www.petanikode.com/img/flutter/flutter-sqr.png', width: 175,),
-                    Image.network('https://www.petanikode.com/img/flutter/flutter-sqr.png', width: 175,),
-                  ],
-                )
-              ]
-            )
-          )
+              ],
+              )
+            ),
+            Container(
+              color: Colors.green,
+              alignment: Alignment.bottomCenter,
+              child: FlutterLogo(size: 50.0),
+              height: 75,
+            ),
+            // Container(
+            //   color: Colors.red,
+            //   alignment: Alignment.bottomCenter,
+            //   child: Text("Dua", style: TextStyle(fontSize: 30.0, color: Colors.white)),
+            //   height: 400,
+            //   width: 300,
+            // ),
+            // Container(
+            //   color: Colors.deepPurple,
+            //   alignment: Alignment.bottomCenter,
+            //   child: Text("Tiga", style: TextStyle(fontSize: 30.0, color: Colors.white)),
+            //   height: 200,
+            //   width: 200,
+            // ),
+            // Container(
+            //   color: Colors.blue,
+            //   alignment: Alignment.bottomCenter,
+            //   child: Text("Tiga", style: TextStyle(fontSize: 30.0, color: Colors.white)),
+            //   height: 200,
+            //   width: 200,
+            // ),
+            // Container(
+            //   color: Colors.green,
+            //   alignment: Alignment.bottomCenter,
+            //   child: FlutterLogo(size: 50.0)
+            // ),
+            // Container(
+            //   color: Colors.red,
+            //   alignment: Alignment.bottomCenter,
+            //   child: Text("Dua", style: TextStyle(fontSize: 30.0, color: Colors.white)),
+            //   height: 400,
+            //   width: 300,
+            // ),
+            // Container(
+            //   color: Colors.deepPurple,
+            //   alignment: Alignment.bottomCenter,
+            //   child: Text("Tiga", style: TextStyle(fontSize: 30.0, color: Colors.white)),
+            //   height: 200,
+            //   width: 200,
+            // ),
+            // Container(
+            //   color: Colors.blue,
+            //   alignment: Alignment.bottomCenter,
+            //   child: Text("Tiga", style: TextStyle(fontSize: 30.0, color: Colors.white)),
+            //   height: 200,
+            //   width: 200,
+            // ),
+          ]
         )
       )
     );
