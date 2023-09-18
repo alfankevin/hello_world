@@ -76,7 +76,7 @@ class MyApp extends StatelessWidget {
                   ),
                   Container(
                     width: double.infinity,
-                    padding: EdgeInsets.all(10),
+                    padding: EdgeInsets.all(8),
                     color: Colors.white,
                     child: Text('Costa Mendekat Ke Palmeiras', textAlign: TextAlign.center, style: TextStyle(color: Colors.black, fontSize: 20.0, fontWeight: FontWeight.bold,),),
                   ),
