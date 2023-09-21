@@ -148,6 +148,5 @@ void main() {
   print(mahasiswa2.a);
   print(mahasiswa2.b);
   print(mahasiswa2.$2);
-
 }
 
