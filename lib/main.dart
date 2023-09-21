@@ -142,12 +142,12 @@ void main() {
   print(mahasiswa);
 
   // Praktikum 5.5
-  // var mahasiswa2 = ('Alfan Farchi', a: 2, b: true, '2141720084');
+  var mahasiswa2 = ('Alfan Farchi', a: 2, b: true, '2141720084');
 
-  // print(mahasiswa2.$1);
-  // print(mahasiswa2.a);
-  // print(mahasiswa2.b);
-  // print(mahasiswa2.$2);
+  print(mahasiswa2.$1);
+  print(mahasiswa2.a);
+  print(mahasiswa2.b);
+  print(mahasiswa2.$2);
 
 }
 
