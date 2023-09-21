@@ -30,6 +30,15 @@ class MyCustomApp extends StatefulWidget {
 class _MyCustomAppState extends State<MyCustomApp> {
   final myController = TextEditingController();
 
+  int x = 0;
+  TextEditingController textController = TextEditingController();
+
+  void updateX() {
+    setState(() {
+      x = int.tryParse(textController.text) ?? 0;
+    });
+  }
+
   @override
   void dispose() {
     myController.dispose();
@@ -56,7 +65,7 @@ class _MyCustomAppState extends State<MyCustomApp> {
                 inputFormatters: <TextInputFormatter>[
                   FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))
                 ],
-                controller: myController,
+                controller: textController,
               ),
             ),
             Expanded(
@@ -71,7 +80,7 @@ class _MyCustomAppState extends State<MyCustomApp> {
                       children: [
                         Text('Suhu dalam Kelvin', style: TextStyle(fontSize: 16),),
                         SizedBox(height: 20),
-                        Text('150', style: TextStyle(fontSize: 40),),
+                        Text('$x', style: TextStyle(fontSize: 40),),
                       ],
                     )
                   ),
@@ -82,7 +91,7 @@ class _MyCustomAppState extends State<MyCustomApp> {
                       children: [
                         Text('Suhu dalam Reamur', style: TextStyle(fontSize: 16),),
                         SizedBox(height: 20),
-                        Text('200', style: TextStyle(fontSize: 40),),
+                        Text('$x', style: TextStyle(fontSize: 40),),
                       ],
                     ),
                   ),
@@ -95,14 +104,15 @@ class _MyCustomAppState extends State<MyCustomApp> {
                 alignment: Alignment.bottomCenter,
                 child: ElevatedButton(
                   onPressed: () {
-                    showDialog(
-                      context: context,
-                      builder: (context) {
-                        return AlertDialog(
-                          content: Text(myController.text),
-                        );
-                      },
-                    );
+                    updateX();
+                    // showDialog(
+                    //   context: context,
+                    //   builder: (context) {
+                    //     return AlertDialog(
+                    //       content: Text(myController.text),
+                    //     );
+                    //   },
+                    // );
                   },
                   style: ButtonStyle(
                     minimumSize: MaterialStateProperty.all(
