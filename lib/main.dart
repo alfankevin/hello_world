@@ -11,43 +11,87 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp (
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Trial',
+      title: 'YouTube',
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Flutter Trial'),
-          backgroundColor: Colors.blue,
-          actions: [
-            IconButton(
-              icon: Icon(Icons.mail),
-              onPressed: () {},
-              color: Colors.yellowAccent,
-            )
-          ],
+          title: Text('YouTube'),
+          backgroundColor: Color.fromARGB(200, 200, 20, 20),
         ),
-        body: SafeArea(
+        body: SingleChildScrollView(
           child: Container(
-            color: Colors.red,
-            margin: EdgeInsets.only(top: 10.0, right: 10.0, left: 10.0),
-            padding: EdgeInsets.only(top: 10.0, right: 10.0, left: 10.0),
             child: Column(
-              children: <Widget>[
-                Image(image: AssetImage('assets/images/mendar-bouchali-HHIxGdj9m-Q-unsplash.jpg',),
-                // width: 200,
-                ),
-                Image.network('https://www.petanikode.com/img/flutter/flutter.png'),
-                Text(
-                  'Belajar Flutter di Petani Kode',
-                  style: TextStyle (fontSize: 24, fontFamily: "Serif", height: 2.0)
-                ),
-                Text('Pembelajaran Flutter untuk Pemula'),
+              children: [
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Image.network('https://www.petanikode.com/img/flutter/flutter-sqr.png', width: 175,),
-                    Image.network('https://www.petanikode.com/img/flutter/flutter-sqr.png', width: 175,),
+                  children: [
+                    Expanded(
+                      child: ElevatedButton(
+                        onPressed: () {},
+                        child: Text('Berita Terbaru'.toUpperCase(),
+                          style: TextStyle(
+                            color: Colors.black
+                          ),
+                        ),
+                        style: ButtonStyle(
+                          elevation: MaterialStateProperty.all(0),
+                          backgroundColor: MaterialStateProperty.all(Colors.white),
+                          minimumSize: MaterialStateProperty.all(Size(0, 50)),
+                        ),
+                      )
+                    ),
+                    Expanded(
+                      child: ElevatedButton(
+                        onPressed: () {},
+                        child: Text('Pertandingan Hari Ini'.toUpperCase(),
+                          style: TextStyle(color: Colors.black),
+                        ),
+                        style: ButtonStyle(
+                          elevation: MaterialStateProperty.all(0),
+                          backgroundColor: MaterialStateProperty.all(Colors.white),
+                          minimumSize: MaterialStateProperty.all(Size(0, 50)),
+                        ),
+                      )
+                    )
                   ],
+                ),
+                Container(
+                  margin: EdgeInsets.only(left: 8.0, right: 8.0, bottom: 8.0),
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: Colors.purple
+                    )
+                  ),
+                  child: Column(
+                    children: [
+                      Container(
+                        child: Image(
+                          image: AssetImage('assets/images/mendar-bouchali-HHIxGdj9m-Q-unsplash.jpg',),
+                        )
+                      ),
+                      Container(
+                        padding: EdgeInsets.all(8),
+                        width: double.infinity,
+                        color: Colors.white,
+                        child: Text('Costa Mendekat Ke Palmeiras',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: Colors.black, fontSize: 20.0, fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                      Container(
+                        padding: EdgeInsets.only(left: 10.0, top: 15.0, bottom: 15.0),
+                        width: double.infinity,
+                        color: Colors.purpleAccent,
+                        child: Text('Transfer',
+                          style: TextStyle(
+                            color: Colors.black, fontSize: 14.0
+                          ),
+                        ),
+                      ),
+                    ],
+                  )
                 )
-              ]
+              ],
             )
           )
         )
