@@ -30,22 +30,8 @@ class HomePage extends StatelessWidget {
       rating: 5
     ),
     Item(
-      name: 'Salts',
-      price: 2000,
-      photo: 'assets/images/mendar-bouchali-HHIxGdj9m-Q-unsplash.jpg',
-      stock: 10,
-      rating: 5
-    ),
-    Item(
-      name: 'Salta',
-      price: 2000,
-      photo: 'assets/images/mendar-bouchali-HHIxGdj9m-Q-unsplash.jpg',
-      stock: 10,
-      rating: 5
-    ),
-    Item(
       name: 'Saltz',
-      price: 2000,
+      price: 3000,
       photo: 'assets/images/mendar-bouchali-HHIxGdj9m-Q-unsplash.jpg',
       stock: 10,
       rating: 5
@@ -72,7 +58,7 @@ class HomePage extends StatelessWidget {
             },
             child: Card(
               child: Padding(
-                padding: const EdgeInsets.all(5),
+                padding: const EdgeInsets.all(8),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -83,23 +69,50 @@ class HomePage extends StatelessWidget {
                         child: Image.asset(item.photo, fit: BoxFit.cover)
                       )
                     ),
-                    Row(
-                      children: [
-                        Expanded(
-                          child: Text(
+                    Padding(
+                      padding: const EdgeInsets.only(top: 8),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
                             item.name,
-                            style: TextStyle(fontWeight: FontWeight.bold),
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16
+                            ),
+                          ),
+                          Row(
+                            children: [
+                              const Icon(Icons.star, color: Colors.amber),
+                              Text(
+                                item.rating.toString(),
+                                style: const TextStyle(
+                                  color: Colors.amber,
+                                  fontSize: 14
+                                ),
+                              )
+                            ],
                           )
-                        ),
-                        Expanded(
-                          child: Text(
-                            item.price.toString(),
-                            textAlign: TextAlign.end,
-                          )
-                        )
-                      ],
+                        ],
+                      ),
                     ),
-                    Text('hello')
+                    Padding(
+                      padding: const EdgeInsets.only(top: 6, bottom: 8),
+                      child: Text(
+                        'Rp.${item.price}',
+                        style: const TextStyle(
+                          color: Colors.deepOrange,
+                          fontSize: 14
+                        )
+                      ),
+                    ),
+                    Text(
+                      'Stock: ${item.stock}',
+                      style: const TextStyle(
+                        color: Colors.grey,
+                        fontSize: 14
+                      )
+                    )
                   ],
                 )
               )
@@ -107,6 +120,34 @@ class HomePage extends StatelessWidget {
           );
         }
       ),
-    ));
+    ),
+    bottomNavigationBar: BottomAppBar(
+      child: Container(
+        padding: const EdgeInsets.all(16),
+          decoration: const BoxDecoration(
+            color: Colors.blue,
+          ),
+          child: const Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                'Alfan Farchi Al-Hadi',
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 16
+                )
+              ),
+              Text(
+                '2141720084',
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 16
+                )
+              ),
+            ],
+          ),
+        )
+      ),
+    );
   }
 }
