@@ -1,23 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:hello_world/models/item.dart';
 
 class ItemPage extends StatelessWidget {
-  ItemPage({super.key});
-
-  static const routeName = '/item';
 
   @override
   Widget build(BuildContext context) {
 
-  return MaterialApp(
-      title: 'Shopee',
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Shopping List'),
-        ),
-        body: Container(
-          child: Text('Item'),
-        )
+  final itemArgs = ModalRoute.of(context)!.settings.arguments as Item;
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(itemArgs.name),
       ),
+      body: Center(
+        child: Text(itemArgs.price.toString()),
+      )
     );
   }
 }
